@@ -1829,6 +1829,25 @@ define Device/xiaomi_mi-router-cr660x
 endef
 TARGET_DEVICES += xiaomi_mi-router-cr660x
 
+define Device/sim_ax1800t
+  $(Device/dsa-migration)
+  $(Device/uimage-lzma-loader)
+  BLOCKSIZE := 128k
+  PAGESIZE := 2048
+  UBINIZE_OPTS := -E 5
+  KERNEL_SIZE := 4096k
+  IMAGE_SIZE := 128512k
+  IMAGES += factory.bin
+  IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
+  IMAGE/factory.bin := append-kernel | pad-to $$(KERNEL_SIZE) | append-ubi | \
+	check-size
+  DEVICE_VENDOR := SIM
+  DEVICE_MODEL := AX1800T
+  DEVICE_PACKAGES += kmod-mt7915-firmware wpad-openssl uboot-envtools
+  SUPPORTED_DEVICES += sim,ax1800t
+endef
+TARGET_DEVICES += sim_ax1800t
+
 define Device/xiaomi_redmi-router-ac2100
   $(Device/xiaomi_nand_separate)
   DEVICE_MODEL := Redmi Router AC2100
