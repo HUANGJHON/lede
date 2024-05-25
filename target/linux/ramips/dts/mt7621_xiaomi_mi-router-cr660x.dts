@@ -10,10 +10,10 @@
 	model = "Xiaomi Mi Router CR660x";
 
 	aliases {
-		led-boot = &led_sys_yellow;
-		led-failsafe = &led_sys_yellow;
-		led-running = &led_sys_blue;
-		led-upgrade = &led_sys_yellow;
+		led-boot = &led_status_red;
+		led-failsafe = &led_status_blue;
+		led-running = &led_status_green;
+		led-upgrade = &led_status_blue;
 		label-mac-device = &gmac0;
 	};
 
