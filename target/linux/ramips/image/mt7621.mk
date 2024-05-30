@@ -1892,7 +1892,7 @@ define Device/sim_ax1800t
 	check-size
   DEVICE_VENDOR := SIM
   DEVICE_MODEL := AX1800T
-  DEVICE_PACKAGES += kmod-mt7915-firmware wpad-openssl uboot-envtools
+  DEVICE_PACKAGES += kmod-mt7915e wpad-openssl uboot-envtools
   SUPPORTED_DEVICES += sim,ax1800t
 endef
 TARGET_DEVICES += sim_ax1800t
